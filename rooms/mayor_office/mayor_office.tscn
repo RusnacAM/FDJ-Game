@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/rooms/mayor_office/transparent.png" type="Texture" id=9]
 [ext_resource path="res://assets/rooms/mayor_office/safe.png" type="Texture" id=10]
 [ext_resource path="res://assets/rooms/mayor_office/desk_sprite.png" type="Texture" id=11]
+[ext_resource path="res://characters/test2.scn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 15, 794, 14, 793, 36, 799, 906, 755, 1204, 690, 1206, 818, 831, 782, 1013, 667, 861, 629, 945, 580, 413, 582, 627, 580, 496, 633, 402, 606, 336, 626, 490, 672, 257, 738, 230, 672, 275, 633, -2, 816, 721, 819, 219, 795, 625, 773, 720, 810, 597, 720 )
@@ -58,18 +59,18 @@ pause_mode = 1
 z_index = 620
 script = ExtResource( 8 )
 global_id = "painting"
-interaction_angle = 360
+esc_script = "res://rooms/mayor_office/scripts/painting.esc"
 tooltip_name = "painting"
 default_action = "look"
 combine_when_selected_action_is_in = [  ]
 animations = null
 
 [node name="interact_position" type="Position2D" parent="RoomObjects/painting"]
-position = Vector2( 0, 1440 )
+position = Vector2( 591, 604 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/painting"]
-position = Vector2( 464.5, 312.625 )
+position = Vector2( 463, 313 )
 shape = SubResource( 2 )
 one_way_collision_margin = 1.7
 
@@ -78,6 +79,7 @@ pause_mode = 1
 z_index = 647
 script = ExtResource( 8 )
 global_id = "desk"
+esc_script = "res://rooms/mayor_office/scripts/desk.esc"
 tooltip_name = "desk"
 default_action = "look"
 combine_when_selected_action_is_in = [  ]
@@ -85,7 +87,7 @@ inventory_texture = ExtResource( 9 )
 animations = null
 
 [node name="interact_position" type="Position2D" parent="RoomObjects/desk"]
-position = Vector2( 0, 1440 )
+position = Vector2( 577, 726 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="RoomObjects/desk"]
@@ -131,3 +133,7 @@ z_as_relative = false
 script = ExtResource( 3 )
 global_id = "mayor_office_start_pos"
 is_start_location = true
+
+[node name="test2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 964, 676 )
+esc_script = "res://test.esc"

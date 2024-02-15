@@ -838,9 +838,7 @@ debug/crash_message="We're sorry, but the game crashed. Please send us the follo
 debug/enable_room_selector=false
 debug/room_selector_room_dir=""
 debug/enable_hover_stack_viewer=false
-ui/default_dialog_type="floating"
 ui/game_scene="res://addons/escoria-ui-simplemouse/game.tscn"
-ui/inventory_items_path="res://inventory/"
 ui/default_transition="curtain"
 ui/transition_paths=[ "res://addons/escoria-core/game/scenes/transitions/shaders/" ]
 ui/inventory_item_size=Vector2( 72, 72 )
@@ -856,12 +854,14 @@ platform/skip_cache=false
 platform/skip_cache.mobile=true
 wizard/path_to_rooms="res://rooms"
 dialog_simple/avatars_path="res://game/dialog_avatars"
-dialog_simple/text_time_per_letter_ms=100
-dialog_simple/text_time_per_fast_letter_ms=25
+dialog_simple/text_time_per_letter_ms=65
+dialog_simple/text_time_per_fast_letter_ms=10
 dialog_simple/clear_text_by_click_only=false
 dialog_simple/reading_speed_in_wpm=200
 dialog_simple/left_click_action="Speed up"
 dialog_simple/stop_talking_animation_on="End of audio"
+ui/default_dialog_type="floating"
+ui/inventory_items_path=false
 
 [gui]
 

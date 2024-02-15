@@ -1,0 +1,12 @@
+
+:look
+set_angle milan_malgul 100
+say current_player "A real beautiful mahogany desk!"
+
+:pickup
+set_angle milan_malgul 100
+# say current_player "Hey - he's *right there*! I can't just touch this!"
+?
+	- "Dfddf"
+		say current_player "Wow"
+		stop
