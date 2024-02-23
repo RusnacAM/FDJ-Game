@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/rooms/peterson_house/petersons_house_back.png" type="Texture" id=1]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=4]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=5]
+[ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/peterson_house/scene_scale (1).png" type="Texture" id=7]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 958, 675, 758, 808, 440, 805, 573, 735, 759, 644, 886, 625, 338, 675, 320, 620, 426, 627, 452, 705, 591, 635, 939, 549, 996, 595, 890, 564 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 3, 9, 8, 10, 4 ), PoolIntArray( 11, 12, 0, 5, 13 ) ]
+outlines = [ PoolVector2Array( 440, 805, 758, 808, 958, 675, 996, 595, 939, 549, 890, 564, 886, 625, 759, 644, 591, 635, 426, 627, 320, 620, 338, 675, 452, 705, 573, 735 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 66, 29.5 )
+
+[node name="petersons_house" type="Node2D"]
+script = ExtResource( 3 )
+global_id = "petersons_house"
+esc_script = "res://rooms/petersons_house/scripts/petersons_house.esc"
+player_scene = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1216.0
+margin_bottom = 832.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 5 )
+scales = ExtResource( 7 )
+scale_min = -0.1
+scale_max = 0.8
+player_speed_multiplier = 1.5
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="ESCExit" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_city_hall"
+tooltip_name = "City Hall"
+target_scene = "res://rooms/city_hall/city_hall.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/ESCExit"]
+position = Vector2( 941, 584.5 )
+shape = SubResource( 2 )
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 579, 780 )
+script = ExtResource( 4 )
+global_id = "petersons_house_start_pos"
+is_start_location = true

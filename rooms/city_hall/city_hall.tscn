@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=1]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=4]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=5]
+[ext_resource path="res://assets/rooms/city_hall/city_hall_back3.png" type="Texture" id=6]
+[ext_resource path="res://assets/rooms/city_hall/scene_scale (1).png" type="Texture" id=7]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 504, 792, 738, 788, 977, 786, 1044, 825, 189, 825, 158, 803, 555, 746, 691, 747 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 1, 0, 6, 7 ) ]
+outlines = [ PoolVector2Array( 158, 803, 189, 825, 1044, 825, 977, 786, 738, 788, 691, 747, 555, 746, 504, 792 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 77.75, 31.5 )
+
+[node name="city_hall" type="Node2D"]
+script = ExtResource( 3 )
+global_id = "city_hall"
+esc_script = "res://rooms/city_hall/scripts/city_hall.esc"
+player_scene = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+mouse_filter = 2
+texture = ExtResource( 6 )
+script = ExtResource( 2 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 5 )
+scales = ExtResource( 7 )
+scale_min = -0.7
+scale_max = 0.4
+player_speed_multiplier = 3.0
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="ESCExit" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_murder_house"
+tooltip_name = "Murder House"
+target_scene = "res://rooms/murder_house/murder_house.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/ESCExit"]
+position = Vector2( 943, 795 )
+shape = SubResource( 2 )
+
+[node name="ESCExit2" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_petersons_house"
+tooltip_name = "Petersons House"
+target_scene = "res://rooms/petersons_house/petersons_house.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/ESCExit2"]
+position = Vector2( 241, 805 )
+shape = SubResource( 2 )
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 197, 809 )
+script = ExtResource( 4 )
+global_id = "city_hall_start_pos"
+is_start_location = true

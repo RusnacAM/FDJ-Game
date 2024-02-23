@@ -1,0 +1,5 @@
+:init
+show_menu main
+
+:newgame
+change_scene res://rooms/alien_room.tscn

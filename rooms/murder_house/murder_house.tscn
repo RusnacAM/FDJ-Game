@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rooms/murder_house/murder_house_back.png" type="Texture" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=4]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=5]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=6]
+[ext_resource path="res://assets/rooms/city_hall/scene_scale (1).png" type="Texture" id=7]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 770, 687, 872, 697, 787, 780, 724, 738, 789, 825, 233, 812, 454, 747, 342, 704, 260, 698 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6 ), PoolIntArray( 7, 6, 5, 8 ) ]
+outlines = [ PoolVector2Array( 233, 812, 789, 825, 787, 780, 872, 697, 770, 687, 724, 738, 454, 747, 342, 704, 260, 698 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 106.188, 38.75 )
+
+[node name="murder_house" type="Node2D"]
+script = ExtResource( 4 )
+global_id = "murder_house"
+esc_script = "res://rooms/murder_house/scripts/murder_house.esc"
+player_scene = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+mouse_filter = 2
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 6 )
+scales = ExtResource( 7 )
+scale_max = 0.6
+bitmaps_scale = Vector2( -1, -1 )
+player_speed_multiplier = 2.0
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="DuBoisHouse" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_du_bois_house"
+tooltip_name = "Du Bois House"
+target_scene = "res://rooms/dubois_house/dubois_house.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/DuBoisHouse"]
+position = Vector2( 345, 722 )
+shape = SubResource( 2 )
+
+[node name="CityHall" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_city_hall"
+tooltip_name = "City Hall"
+target_scene = "res://rooms/city_hall/city_hall.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/CityHall"]
+position = Vector2( 608.812, 787 )
+shape = SubResource( 2 )
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 412, 797 )
+script = ExtResource( 5 )
+global_id = "murder_house_start_pos"
+is_start_location = true

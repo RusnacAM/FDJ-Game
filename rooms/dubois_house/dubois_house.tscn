@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/rooms/dubois_house/dubois_house_back.png" type="Texture" id=1]
+[ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=4]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=5]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=6]
+[ext_resource path="res://assets/rooms/city_hall/scene_scale (1).png" type="Texture" id=7]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 302, 808, 475, 707, 934, 693, 905, 811, 361, 819 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
+outlines = [ PoolVector2Array( 361, 819, 905, 811, 934, 693, 475, 707, 302, 808 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 346.25, 33.25 )
+
+[node name="dubois_house" type="Node2D"]
+script = ExtResource( 4 )
+global_id = "dubois_house"
+esc_script = "res://rooms/dubois_house/scripts/dubois_house.esc"
+player_scene = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+mouse_filter = 2
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 6 )
+scales = ExtResource( 7 )
+scale_min = 0.1
+scale_max = 0.6
+player_speed_multiplier = 2.0
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="ESCExit" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+global_id = "nav_murder_house"
+tooltip_name = "Murder House"
+target_scene = "res://rooms/murder_house/murder_house.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/ESCExit"]
+position = Vector2( 645.75, 792.25 )
+shape = SubResource( 2 )
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 467, 806 )
+script = ExtResource( 5 )
+global_id = "dubois_house_start_pos"
+is_start_location = true
