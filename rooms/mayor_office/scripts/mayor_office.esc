@@ -7,6 +7,13 @@
 :setup
 set_active mayor false [mayor_out_office]
 set_active mayor true [!mayor_out_office]
+set_active painting false [safe_found]
+set_active safe true [safe_found]
+set_active safe false [safe_solved]
+set_active painting false [safe_solved]
+set_active hole false [!safe_solved]
+set_active hole true [safe_solved]
+
 
 
 # ":ready" runs after any events configured in setup complete. It is used to
@@ -15,7 +22,6 @@ set_active mayor true [!mayor_out_office]
 # a specific location in the room before giving control to the player.)
 
 :ready
-
 
 
 # Code examples - feel free to delete this section

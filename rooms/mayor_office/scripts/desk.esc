@@ -8,7 +8,7 @@ set_angle milan_malgul 100
 > [!mayor_out_office]
   say current_player "Hey - he's *right there*! I can't just touch this!"
 
-> [i/desk_photo]
+> [i/desk_photo, mayor_out_office]
   say milan_malgul "I've already searched here."
 
 > [mayor_out_office, !i/desk_photo]

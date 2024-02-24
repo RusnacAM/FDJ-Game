@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/fonts/caslonantique.tres" type="DynamicFont" id=1]
+[ext_resource path="res://rooms/mayor_office/puzzle/puzzle_script.gd" type="Script" id=2]
+
+[node name="10_buttons_puzzle" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 174.813
+margin_top = 79.6769
+margin_right = 899.813
+margin_bottom = 126.677
+custom_fonts/font = ExtResource( 1 )
+text = ""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win_label" type="Label" parent="."]
+margin_left = 558.177
+margin_top = 674.983
+margin_right = 719.177
+margin_bottom = 721.983
+custom_fonts/font = ExtResource( 1 )
+text = "Well done!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 149.0
+margin_top = 190.0
+margin_right = 1122.0
+margin_bottom = 622.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GridContainer"]
+margin_right = 192.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "1"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+margin_left = 196.0
+margin_right = 388.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "1"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+margin_left = 392.0
+margin_right = 583.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button4" type="Button" parent="GridContainer"]
+margin_left = 587.0
+margin_right = 778.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button5" type="Button" parent="GridContainer"]
+margin_left = 782.0
+margin_right = 973.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button6" type="Button" parent="GridContainer"]
+margin_top = 218.0
+margin_right = 192.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button7" type="Button" parent="GridContainer"]
+margin_left = 196.0
+margin_top = 218.0
+margin_right = 388.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button8" type="Button" parent="GridContainer"]
+margin_left = 392.0
+margin_top = 218.0
+margin_right = 583.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button9" type="Button" parent="GridContainer"]
+margin_left = 587.0
+margin_top = 218.0
+margin_right = 778.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="Button10" type="Button" parent="GridContainer"]
+margin_left = 782.0
+margin_top = 218.0
+margin_right = 973.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+
+[node name="quit" type="Button" parent="."]
+margin_left = 1148.0
+margin_top = 56.0
+margin_right = 1193.0
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

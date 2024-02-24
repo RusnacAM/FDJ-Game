@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/rooms/mayor_office/safe.png" type="Texture" id=10]
 [ext_resource path="res://assets/rooms/mayor_office/desk_sprite.png" type="Texture" id=11]
 [ext_resource path="res://characters/mayor.scn" type="PackedScene" id=12]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_dialog_location.gd" type="Script" id=13]
+[ext_resource path="res://assets/rooms/mayor_office/empty.png" type="Texture" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 15, 794, 14, 793, 36, 799, 906, 755, 1204, 690, 1206, 818, 831, 782, 1013, 667, 861, 629, 945, 580, 413, 582, 627, 580, 496, 633, 402, 606, 336, 626, 490, 672, 257, 738, 230, 672, 275, 633, -2, 816, 721, 819, 219, 795, 625, 773, 720, 810, 597, 720 )
@@ -26,6 +28,12 @@ extents = Vector2( 37.25, 47.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 77, 171 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 87.5, 104.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 42.5, 54 )
 
 [node name="mayor_office" type="Node2D"]
 script = ExtResource( 2 )
@@ -70,7 +78,7 @@ combine_when_selected_action_is_in = [  ]
 animations = null
 
 [node name="interact_position" type="Position2D" parent="RoomObjects/painting"]
-position = Vector2( 591, 604 )
+position = Vector2( 516, 604 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/painting"]
@@ -110,7 +118,7 @@ pause_mode = 1
 visible = false
 script = ExtResource( 8 )
 global_id = "safe"
-is_interactive = false
+esc_script = "res://rooms/mayor_office/scripts/painting.esc"
 tooltip_name = "safe"
 default_action = "look"
 combine_when_selected_action_is_in = [  ]
@@ -118,7 +126,7 @@ inventory_texture = ExtResource( 10 )
 animations = null
 
 [node name="interact_position" type="Position2D" parent="RoomObjects/safe"]
-position = Vector2( 0, 1332 )
+position = Vector2( 533, 604 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/safe"]
@@ -152,6 +160,61 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="RoomObjects/door"]
 texture = ExtResource( 9 )
+
+[node name="cabinet" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+position = Vector2( 339, -283 )
+script = ExtResource( 8 )
+global_id = "cabinet"
+esc_script = "res://rooms/mayor_office/scripts/cabinet.esc"
+tooltip_name = "cabinet"
+default_action = "look"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 9 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/cabinet"]
+position = Vector2( 701, 985 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/cabinet"]
+position = Vector2( 768, 848 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/cabinet"]
+position = Vector2( -294, -199.5 )
+scale = Vector2( 0.540625, 0.445833 )
+texture = ExtResource( 9 )
+
+[node name="ESCDialogLocation" type="Position2D" parent="RoomObjects/cabinet"]
+position = Vector2( 769, 699 )
+script = ExtResource( 13 )
+
+[node name="hole" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+visible = false
+script = ExtResource( 8 )
+global_id = "hole"
+esc_script = "res://rooms/mayor_office/scripts/painting.esc"
+tooltip_name = "hole"
+default_action = "look"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 14 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/hole"]
+position = Vector2( 496, 604 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/hole"]
+visible = false
+position = Vector2( 460.5, 313 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/hole"]
+position = Vector2( 464, 313.5 )
+scale = Vector2( 0.38, 0.475 )
+texture = ExtResource( 14 )
 
 [node name="StartPos" type="Position2D" parent="."]
 visible = false

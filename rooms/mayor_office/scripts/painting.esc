@@ -1,13 +1,33 @@
 :look
 set_angle milan_malgul 360
-> [!safe_found]
+
+> [safe_solved, !i/safe_documents]
+  say milan_malgul "Huh? What's this? Documents?"
+  inventory_add safe_documents
+
+> [!safe_found, !safe_solved]
 	say milan_malgul "Huh? That's one hell of a painting, alright!"
 
-> [safe_found] 
+> [safe_found, !safe_solved] 
+  say milan_malgul "Hm... What do we have here..."
+  spawn puzzle "res://rooms/mayor_office/puzzle/puzzle_scene.tscn"
+
 
 :pickup
 > [!mayor_out_office]
 	say milan_malgul "Hey - he's *right there*! I can't just touch this!"
 
->[mayor_out_office, !safe_found]
+> [mayor_out_office, !safe_found]
   say milan_malgul "I've already looked at it. Now what?"
+
+:use shard
+> [!mayor_out_office]
+	say milan_malgul "Hey - he's *right there*! I can't just touch this!"
+  
+> [!safe_found, mayor_out_office]
+  say milan_malgul "What? You want me to use this on the painting?"
+  say milan_malgul "OK... Here goes nothing!"
+  set_active painting false
+  set_active safe true
+  say milan_malgul "HOLY #%$*!"
+  set_global safe_found true

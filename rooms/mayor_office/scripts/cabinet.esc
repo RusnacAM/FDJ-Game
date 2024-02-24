@@ -1,0 +1,18 @@
+:look 
+set_angle milan_malgul 70
+say milan_malgul "A real nice cabinet. Some books on top."
+
+:pickup
+set_angle milan_malgul 70
+> [!mayor_out_office]
+  say current_player "Hey - he's *right there*! I can't just touch this!"
+
+> [i/shard, mayor_out_office]
+  say milan_malgul "I've already searched here."
+
+> [mayor_out_office, !i/shard]
+  say milan_malgul "Let's see what's up here!"
+  say milan_malgul "Oh God... so much dust under."
+  say milan_malgul "I see something - I've got it!"
+  inventory_add shard [!i/shard]
+
