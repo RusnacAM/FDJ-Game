@@ -821,7 +821,6 @@ enabled=PoolStringArray( "res://addons/escoria-core/plugin.cfg", "res://addons/e
 [escoria]
 
 main/game_version=""
-main/game_start_script="res://start_game.esc"
 main/action_default_script=""
 main/force_quit=true
 main/command_directories=[ "res://addons/escoria-core/game/core-scripts/esc/commands" ]
@@ -859,12 +858,14 @@ platform/skip_cache=false
 platform/skip_cache.mobile=true
 wizard/path_to_rooms="res://rooms"
 dialog_simple/avatars_path="res://game/dialog_avatars"
-dialog_simple/text_time_per_letter_ms=100
-dialog_simple/text_time_per_fast_letter_ms=25
+dialog_simple/text_time_per_letter_ms=50
+dialog_simple/text_time_per_fast_letter_ms=15
 dialog_simple/clear_text_by_click_only=false
 dialog_simple/reading_speed_in_wpm=200
 dialog_simple/left_click_action="Speed up"
 dialog_simple/stop_talking_animation_on="End of audio"
+main/game_start_script="res://start_game.esc"
+<<<<<<<Updatedupstreammain/game_start_script="res://start_game.esc"
 
 [gui]
 

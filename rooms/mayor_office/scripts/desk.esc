@@ -5,8 +5,18 @@ say current_player "A real beautiful mahogany desk!"
 
 :pickup
 set_angle milan_malgul 100
-# say current_player "Hey - he's *right there*! I can't just touch this!"
-?
-	- "Dfddf"
-		say current_player "Wow"
-		stop
+> [!mayor_out_office]
+  say current_player "Hey - he's *right there*! I can't just touch this!"
+
+> [i/desk_photo]
+  say milan_malgul "I've already searched here."
+
+> [mayor_out_office, !i/desk_photo]
+  say milan_malgul "I guess it wouldn't hurt to take a look..."
+  say milan_malgul "Gum... a pen... oh! a secret compartment!"
+  say milan_malgul "Huh... there's a photo of a woman here."
+  
+  inventory_add desk_photo [!i/desk_photo]
+    
+
+

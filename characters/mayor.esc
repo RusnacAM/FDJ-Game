@@ -1,6 +1,7 @@
 
 
 :talk
+set_angle milan_malgul 270
 
 > [!mayor_out_office]
 	say mayor "Good morning -- you must be Detective Malgul! They've called me about you coming down here."
@@ -30,7 +31,7 @@
 			say mayor "Yes, it was me... what dreadful business. I haven't allowed anyone back there."
 			say mayor "Detective, I... *must* warn you, something is quite off about it."
 			say milan_malgul "Off? Off how? Besides it being a *murder* scene?"
-      say mayor "I don't even know how to explain it. You'll... just have to see."			
+	  say mayor "I don't even know how to explain it. You'll... just have to see."			
 		- "OK, enough about the victim for now."
 		  say milan_malgul "OK, enough about the victim for now."
 		  stop
@@ -49,10 +50,18 @@
 	  say mayor "Oh... nothing. I'm sure it's just nothing..."
 			
 	- "OK, let's go to the murder scene now."
-		      set_global mayor_out_office true 
-		      # TODO CHANGE SCENE TO MURDER HOUSE OUTSIDE
-		      stop  
+			  set_global mayor_out_office true 
+			  change_scene res://rooms/murder_house/murder_house.tscn
+			  stop  
+	- "Let's talk later."
+	  say milan_malgul "Let's talk later."
+	  stop
 	!
+	
+> [mayor_out_office]
+  say mayor "Well... Here we are."
+  say mayor "The Klaanen house. What awful business in there..."
+  say milan_malgul "OK, Mayor Watkins, I'll take it from here."
 
 		
 			

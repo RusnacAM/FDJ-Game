@@ -8,3 +8,6 @@ set_angle milan_malgul 360
 :pickup
 > [!mayor_out_office]
 	say milan_malgul "Hey - he's *right there*! I can't just touch this!"
+
+>[mayor_out_office, !safe_found]
+  say milan_malgul "I've already looked at it. Now what?"

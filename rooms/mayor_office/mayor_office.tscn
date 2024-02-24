@@ -161,5 +161,5 @@ global_id = "mayor_office_start_pos"
 is_start_location = true
 
 [node name="mayor" parent="." instance=ExtResource( 12 )]
-position = Vector2( 942, 675 )
+position = Vector2( 932, 696 )
 esc_script = "res://characters/mayor.esc"
