@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/murder_house/murder_house_back.png" type="Texture" id=2]
@@ -9,14 +9,19 @@
 [ext_resource path="res://assets/rooms/city_hall/scene_scale (1).png" type="Texture" id=7]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
 [ext_resource path="res://characters/mayor.scn" type="PackedScene" id=9]
+[ext_resource path="res://assets/rooms/mayor_office/transparent.png" type="Texture" id=10]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_item.gd" type="Script" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 770, 687, 872, 697, 787, 780, 724, 738, 789, 825, 233, 812, 454, 747, 342, 704, 260, 698 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6 ), PoolIntArray( 7, 6, 5, 8 ) ]
-outlines = [ PoolVector2Array( 233, 812, 789, 825, 787, 780, 872, 697, 770, 687, 724, 738, 454, 747, 342, 704, 260, 698 ) ]
+vertices = PoolVector2Array( 770, 687, 872, 697, 787, 780, 723, 738, 555, 736, 661, 736, 789, 825, 233, 812, 454, 747, 260, 698, 342, 704, 559, 703, 615, 695 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 3, 2, 6, 7, 8 ), PoolIntArray( 7, 9, 10, 8 ), PoolIntArray( 4, 11, 12, 5 ) ]
+outlines = [ PoolVector2Array( 233, 812, 789, 825, 787, 780, 872, 697, 770, 687, 723, 738, 661, 736, 615, 695, 559, 703, 555, 736, 454, 747, 342, 704, 260, 698 ) ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 106.188, 38.75 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 59, 107 )
 
 [node name="murder_house" type="Node2D"]
 script = ExtResource( 4 )
@@ -32,9 +37,9 @@ script = ExtResource( 3 )
 [node name="WalkableArea" type="Navigation2D" parent="."]
 script = ExtResource( 6 )
 scales = ExtResource( 7 )
-scale_max = 0.6
+scale_max = 0.5
 bitmaps_scale = Vector2( -1, -1 )
-player_speed_multiplier = 2.0
+player_speed_multiplier = 2.5
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
 navpoly = SubResource( 1 )
@@ -60,6 +65,28 @@ target_scene = "res://rooms/city_hall/city_hall.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/CityHall"]
 position = Vector2( 608.812, 787 )
 shape = SubResource( 2 )
+
+[node name="door" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+script = ExtResource( 11 )
+global_id = "door"
+esc_script = "res://rooms/murder_house/scripts/murder_scene.esc"
+tooltip_name = "door"
+default_action = "use"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 10 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/door"]
+position = Vector2( 607, 719 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/door"]
+position = Vector2( 593, 623 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/door"]
+texture = ExtResource( 10 )
 
 [node name="StartPos" type="Position2D" parent="."]
 position = Vector2( 412, 797 )
