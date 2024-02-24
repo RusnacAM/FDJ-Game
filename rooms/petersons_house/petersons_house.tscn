@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/rooms/peterson_house/petersons_house_back.png" type="Texture" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=2]
@@ -8,14 +8,19 @@
 [ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=6]
 [ext_resource path="res://assets/rooms/peterson_house/scene_scale (1).png" type="Texture" id=7]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_exit.gd" type="Script" id=8]
+[ext_resource path="res://assets/rooms/mayor_office/transparent.png" type="Texture" id=9]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_item.gd" type="Script" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 958, 675, 758, 808, 440, 805, 573, 735, 759, 644, 886, 625, 338, 675, 320, 620, 426, 627, 452, 705, 591, 635, 939, 549, 996, 595, 890, 564 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 3, 9, 8, 10, 4 ), PoolIntArray( 11, 12, 0, 5, 13 ) ]
-outlines = [ PoolVector2Array( 440, 805, 758, 808, 958, 675, 996, 595, 939, 549, 890, 564, 886, 625, 759, 644, 591, 635, 426, 627, 320, 620, 338, 675, 452, 705, 573, 735 ) ]
+vertices = PoolVector2Array( 958, 675, 758, 808, 440, 805, 573, 735, 759, 644, 886, 625, 452, 705, 338, 675, 281, 623, 486, 619, 525, 586, 571, 585, 580, 629, 939, 549, 996, 595, 890, 564 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 3 ), PoolIntArray( 3, 9, 10, 11, 12 ), PoolIntArray( 3, 12, 4 ), PoolIntArray( 13, 14, 0, 5, 15 ) ]
+outlines = [ PoolVector2Array( 440, 805, 758, 808, 958, 675, 996, 595, 939, 549, 890, 564, 886, 625, 759, 644, 580, 629, 571, 585, 525, 586, 486, 619, 281, 623, 338, 675, 452, 705, 573, 735 ) ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 66, 29.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 39.5, 78 )
 
 [node name="petersons_house" type="Node2D"]
 script = ExtResource( 3 )
@@ -52,8 +57,30 @@ target_scene = "res://rooms/city_hall/city_hall.tscn"
 position = Vector2( 941, 584.5 )
 shape = SubResource( 2 )
 
+[node name="house_door" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+script = ExtResource( 10 )
+global_id = "house_door"
+esc_script = "res://rooms/petersons_house/scripts/enter_door.esc"
+tooltip_name = "house_door"
+default_action = "use"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 9 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/house_door"]
+position = Vector2( 542, 603 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/house_door"]
+position = Vector2( 553.5, 526 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/house_door"]
+texture = ExtResource( 9 )
+
 [node name="StartPos" type="Position2D" parent="."]
-position = Vector2( 579, 780 )
+position = Vector2( 925, 603 )
 script = ExtResource( 4 )
 global_id = "petersons_house_start_pos"
 is_start_location = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/rooms/mayor_office/safe.png" type="Texture" id=10]
 [ext_resource path="res://assets/rooms/mayor_office/desk_sprite.png" type="Texture" id=11]
 [ext_resource path="res://characters/mayor.scn" type="PackedScene" id=12]
+[ext_resource path="res://characters/mayor/mayor.scn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 15, 794, 14, 793, 36, 799, 906, 755, 1204, 690, 1206, 818, 831, 782, 1013, 667, 861, 629, 945, 580, 413, 582, 627, 580, 496, 633, 402, 606, 336, 626, 490, 672, 257, 738, 230, 672, 275, 633, -2, 816, 721, 819, 219, 795, 625, 773, 720, 810, 597, 720 )
@@ -49,7 +50,8 @@ script = ExtResource( 1 )
 script = ExtResource( 4 )
 scales = ExtResource( 7 )
 scale_min = 0.5
-scale_max = 1.2
+scale_max = 1.1
+player_speed_multiplier = 1.5
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
 position = Vector2( 1, 0 )
@@ -163,3 +165,6 @@ is_start_location = true
 [node name="mayor" parent="." instance=ExtResource( 12 )]
 position = Vector2( 932, 696 )
 esc_script = "res://characters/mayor.esc"
+
+[node name="mayor2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 381, 784 )

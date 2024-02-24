@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mayor_watkins.png-ba0b649b60ed6981198fb85682a5b9bc.stex"
+path="res://.import/mrs_peterson.png-2a70e13077359a36eac29399cdca8298.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/mayor/mayor_watkins.png"
-dest_files=[ "res://.import/mayor_watkins.png-ba0b649b60ed6981198fb85682a5b9bc.stex" ]
+source_file="res://assets/characters/mrs_peterson/mrs_peterson.png"
+dest_files=[ "res://.import/mrs_peterson.png-2a70e13077359a36eac29399cdca8298.stex" ]
 
 [params]
 

@@ -73,7 +73,7 @@ position = Vector2( 621, 754 )
 shape = SubResource( 3 )
 
 [node name="StartPos" type="Position2D" parent="."]
-position = Vector2( 197, 809 )
+position = Vector2( 623, 805 )
 script = ExtResource( 4 )
 global_id = "city_hall_start_pos"
 is_start_location = true
