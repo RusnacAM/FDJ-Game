@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=2]
@@ -16,6 +16,9 @@ outlines = [ PoolVector2Array( 158, 803, 189, 825, 1044, 825, 977, 786, 738, 788
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 77.75, 31.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 85, 45 )
 
 [node name="city_hall" type="Node2D"]
 script = ExtResource( 3 )
@@ -59,6 +62,15 @@ target_scene = "res://rooms/petersons_house/petersons_house.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/ESCExit2"]
 position = Vector2( 241, 805 )
 shape = SubResource( 2 )
+
+[node name="nav_mayor_office" type="Area2D" parent="RoomObjects"]
+script = ExtResource( 8 )
+tooltip_name = "Mayor Office"
+target_scene = "res://rooms/mayor_office/mayor_office.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/nav_mayor_office"]
+position = Vector2( 621, 754 )
+shape = SubResource( 3 )
 
 [node name="StartPos" type="Position2D" parent="."]
 position = Vector2( 197, 809 )

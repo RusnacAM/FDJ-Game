@@ -2,5 +2,5 @@
 show_menu main
 
 :newgame
-change_scene res://rooms/mayor_office/mayor_office.tscn
+change_scene res://rooms/city_hall/city_hall.tscn
 
