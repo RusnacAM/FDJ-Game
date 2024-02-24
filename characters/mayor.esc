@@ -1,0 +1,58 @@
+
+
+:talk
+
+> [!mayor_out_office]
+	say mayor "Good morning -- you must be Detective Malgul! They've called me about you coming down here."
+	say milan_malgul "Indeed. Mayor Watkins, right?"
+	say mayor "Yes, yes, I apologize for not introducing myself! "
+	say mayor "Would you care for a cup of tea while we talk?"
+	say milan_malgul "Mayor Watkins, the case is cooling off as we speak." 
+	say milan_malgul "Let's not beat around the bush."
+	say milan_malgul "Tell me more about this... idle little town you've got."
+	say mayor "But of course. What would you like to know?"
+	
+	?
+	- "What can you tell me about the victim?"
+		say milan_malgul "What can you tell me about the victim?"
+		say mayor "Oh... Poor Geordie. I can't even talk about it without tearing up."
+		say mayor "We was just a sweet old man, just living peacefully."
+		say mayor "What a dreadful matter..."
+		
+		? 
+		- "Any enemies, friends?"
+			say milan_malgul "Any enemies, friends?"
+			say mayor "Enemies? I don't think he's *ever* had an enemy, poor Eddie..."
+			say mayor "Well... we're all friendly around these parts."
+			say mayor "I'm not sure who he was close to."
+		- "You discovered the crime scene?"
+			say milan_malgul "You discovered the crime scene, correct? Has anyone else gone there?"
+			say mayor "Yes, it was me... what dreadful business. I haven't allowed anyone back there."
+			say mayor "Detective, I... *must* warn you, something is quite off about it."
+			say milan_malgul "Off? Off how? Besides it being a *murder* scene?"
+      say mayor "I don't even know how to explain it. You'll... just have to see."			
+		- "OK, enough about the victim for now."
+		  say milan_malgul "OK, enough about the victim for now."
+		  stop
+		!
+		
+	- "Who should I talk to around here?"
+	  say milan_malgul "So, who should I talk to around in these parts?"
+	  say mayor "Oh *ahem*, well."
+	  say mayor "I suppose the Petersens down the street, the DuBois's, and myself are all that's left 'round these parts..."
+	
+	- "What can you tell me about this town?"
+	  say milan_malgul "So, tell me about this town."
+	  say mayor "It's just a quiet little town, not bothering anyone."
+	  say mayor "I've been here for 12 years, and it's quite serene. Well... lately..."
+	  say milan_malgul "Yes? Lately what?"
+	  say mayor "Oh... nothing. I'm sure it's just nothing..."
+			
+	- "OK, let's go to the murder scene now."
+		      set_global mayor_out_office true 
+		      # TODO CHANGE SCENE TO MURDER HOUSE OUTSIDE
+		      stop  
+	!
+
+		
+			

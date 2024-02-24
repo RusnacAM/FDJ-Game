@@ -1,0 +1,6 @@
+:init
+show_menu main
+
+:newgame
+change_scene res://rooms/mayor_office/mayor_office.tscn
+
