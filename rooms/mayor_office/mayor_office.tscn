@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=1]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=2]
@@ -24,6 +24,9 @@ extents = Vector2( 52.5, 64.375 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 37.25, 47.5 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 77, 171 )
+
 [node name="mayor_office" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
@@ -34,9 +37,9 @@ esc_script = "res://rooms/mayor_office/scripts/mayor_office.esc"
 player_scene = ExtResource( 5 )
 
 [node name="Background" type="TextureRect" parent="."]
-margin_left = -5.0
+margin_left = -6.0
 margin_top = -8.0
-margin_right = 1211.0
+margin_right = 1210.0
 margin_bottom = 824.0
 mouse_filter = 2
 texture = ExtResource( 6 )
@@ -125,6 +128,29 @@ shape = SubResource( 3 )
 position = Vector2( 464.5, 313.5 )
 scale = Vector2( 0.164786, 0.142643 )
 texture = ExtResource( 10 )
+
+[node name="door" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+position = Vector2( 626, 419 )
+script = ExtResource( 8 )
+global_id = "door"
+esc_script = "res://rooms/mayor_office/scripts/door.esc"
+tooltip_name = "door"
+default_action = "use"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 9 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/door"]
+position = Vector2( 122, 161 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/door"]
+position = Vector2( -16, -24 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/door"]
+texture = ExtResource( 9 )
 
 [node name="StartPos" type="Position2D" parent="."]
 visible = false
