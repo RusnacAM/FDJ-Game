@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/rooms/mayor_office/transparent.png" type="Texture" id=9]
 [ext_resource path="res://assets/rooms/mayor_office/safe.png" type="Texture" id=10]
 [ext_resource path="res://assets/rooms/mayor_office/desk_sprite.png" type="Texture" id=11]
-[ext_resource path="res://characters/test2.scn" type="PackedScene" id=12]
+[ext_resource path="res://characters/mayor.scn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 15, 794, 14, 793, 36, 799, 906, 755, 1204, 690, 1206, 818, 831, 782, 1013, 667, 861, 629, 945, 580, 413, 582, 627, 580, 496, 633, 402, 606, 336, 626, 490, 672, 257, 738, 230, 672, 275, 633, -2, 816, 721, 819, 219, 795, 625, 773, 720, 810, 597, 720 )
@@ -134,6 +134,6 @@ script = ExtResource( 3 )
 global_id = "mayor_office_start_pos"
 is_start_location = true
 
-[node name="test2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 964, 676 )
-esc_script = "res://test.esc"
+[node name="mayor" parent="." instance=ExtResource( 12 )]
+position = Vector2( 942, 675 )
+esc_script = "res://characters/mayor.esc"

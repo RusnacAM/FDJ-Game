@@ -5,7 +5,8 @@
 # sees the room). Reset movable objects to their start positions here.
 
 :setup
-
+set_active mayor false [mayor_out_office]
+set_active mayor true [!mayor_out_office]
 
 
 # ":ready" runs after any events configured in setup complete. It is used to

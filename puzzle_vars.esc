@@ -1,2 +1,9 @@
-# mayor's barn
+# MAYOR PAINTING PUZZLE
+
+
+set_global mrs_p_mentioned_painting true #### TODO CHANGE THIS !!!
+set_global safe_found false
+set_global safe_opened false
+
+
 

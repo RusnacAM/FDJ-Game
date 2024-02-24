@@ -1,6 +1,10 @@
 :look
 set_angle milan_malgul 360
-say milan_malgul "Huh? That's one hell of a painting, alright!"
+> [!safe_found]
+	say milan_malgul "Huh? That's one hell of a painting, alright!"
+
+> [safe_found] 
 
 :pickup
-say milan_malgul "Hey - he's *right there*! I can't just touch this!"
+> [!mayor_out_office]
+	say milan_malgul "Hey - he's *right there*! I can't just touch this!"
