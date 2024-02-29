@@ -1,0 +1,8 @@
+:use
+set_angle milan_malgul 60
+> [bubble_burst]
+  change_scene res://rooms/murder_house/murder_bedroom.tscn
+
+> [!bubble_burst]
+  say milan_malgul "Ow! Forcing it won't work."
+  say milan_malgul "Some kind of... field is blocking it..."

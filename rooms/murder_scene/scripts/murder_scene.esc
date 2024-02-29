@@ -15,7 +15,24 @@
 
 :ready
 
+> [!visited_murder_scene]
+  set_angle milan_malgul 180
+  set_global visited_murder_scene true
+  set_gui_visible false
+  accept_input SKIP
 
+  say milan_malgul "Huh? I can't move..."
+  say blood_bubble "I'VE BEEN WAITING."
+  say milan_malgul "Well I sure wasn't expecting *this* today..."
+  say blood_bubble "SILENCE. AHEM. I'VE BEEN WAITING."
+  say blood_bubble "IT'S TIME, DETECTIVE. IT CALLS FOR US."
+  say blood_bubble "IT MUST BE SET FREE."
+  say blood_bubble "YOU MUST RELEASE ME TO CONTINUE, DETECTIVE."
+  say milan_malgul "..."
+  say milan_malgul "What the hell was in the precinct coffee this morning?"
+
+  set_gui_visible true
+  accept_input ALL
 
 # Code examples - feel free to delete this section
 #
