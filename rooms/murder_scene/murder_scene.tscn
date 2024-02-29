@@ -16,7 +16,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6 ), PoolIntArray( 5, 7, 8, 9, 6 ),
 outlines = [ PoolVector2Array( 16, 636, 103, 611, 86, 576, 112, 561, 203, 567, 236, 559, 338, 576, 338, 594, 827, 596, 829, 565, 934, 548, 1191, 644, 1187, 796, 66, 802 ) ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 80.5, 229.5 )
+extents = Vector2( 66.25, 213.75 )
 
 [node name="murder_scene" type="Node2D"]
 script = ExtResource( 5 )
@@ -59,6 +59,28 @@ position = Vector2( 124.5, 386.5 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="RoomObjects/exit_door"]
+texture = ExtResource( 8 )
+
+[node name="bedroom_door" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+script = ExtResource( 9 )
+global_id = "bedroom_door"
+esc_script = "res://rooms/murder_scene/scripts/bedroom_door.esc"
+tooltip_name = "exit_door"
+default_action = "use"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 8 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/bedroom_door"]
+position = Vector2( 985, 587 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomObjects/bedroom_door"]
+position = Vector2( 1077, 373 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/bedroom_door"]
 texture = ExtResource( 8 )
 
 [node name="StartPos" type="Position2D" parent="."]
