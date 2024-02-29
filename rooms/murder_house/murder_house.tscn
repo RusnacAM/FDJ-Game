@@ -25,6 +25,9 @@ extents = Vector2( 59, 107 )
 
 [node name="murder_house" type="Node2D"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 790.0 ]
+}
 global_id = "murder_house"
 esc_script = "res://rooms/murder_house/scripts/murder_house.esc"
 player_scene = ExtResource( 1 )
@@ -95,5 +98,6 @@ global_id = "murder_house_start_pos"
 is_start_location = true
 
 [node name="mayor" parent="." instance=ExtResource( 9 )]
-position = Vector2( 293, 788 )
-esc_script = "res://characters/mayor.esc"
+position = Vector2( 779, 801 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 790

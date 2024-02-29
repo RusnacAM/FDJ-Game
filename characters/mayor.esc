@@ -1,17 +1,15 @@
-
-
 :talk
-set_angle milan_malgul 270
 
 > [!mayor_out_office]
-	say mayor "Good morning -- you must be Detective Malgul! They've called me about you coming down here."
-	say milan_malgul "Indeed. Mayor Watkins, right?"
-	say mayor "Yes, yes, I apologize for not introducing myself! "
-	say mayor "Would you care for a cup of tea while we talk?"
-	say milan_malgul "Mayor Watkins, the case is cooling off as we speak." 
-	say milan_malgul "Let's not beat around the bush."
-	say milan_malgul "Tell me more about this... idle little town you've got."
-	say mayor "But of course. What would you like to know?"
+  set_angle milan_malgul 90
+  > [!mayor_met]
+	  set_global mayor_met true
+	  say mayor "Good morning -- you must be Detective Malgul!"
+	  say milan_malgul "Indeed. Mayor Watkins, right?"
+	  say mayor "Yes, yes, I apologize for not introducing myself! "
+	  say milan_malgul "Mayor Watkins, the case is cooling off as we speak." 
+	  say milan_malgul "Tell me more about this... idle little town you've got."
+	  say mayor "But of course. What would you like to know?"
 	
 	?
 	- "What can you tell me about the victim?"
@@ -59,9 +57,15 @@ set_angle milan_malgul 270
 	!
 	
 > [mayor_out_office]
+  set_angle milan_malgul 90
   say mayor "Well... Here we are."
   say mayor "The Klaanen house. What awful business in there..."
   say milan_malgul "OK, Mayor Watkins, I'll take it from here."
+  say mayor "Wait! I- I must tell you something."
+  say milan_malgul "What?"
+  say mayor "There's something *weird* going on here, detective!"
+  say mayor "Please! I have to warn *you*... Maybe you shouldn't-"
+  say milan_malgul "-don't be foolish, Mayor Watkins. I'm going in."
 
 		
 			

@@ -1,5 +1,50 @@
-
-
 :talk
 
-say mrs_peterson "Mrs.Peterson test test test test"
+> [!mrsp_met]
+  set_global mrsp_met true
+  say mrs_peterson "Oh hi dearie! You must be here about poor old Geordie..."
+  say milan_malgul "Detective Malgul. You must be Mrs. Peterson?"
+  say mrs_peterson "Yes, yes..."
+  say milan_malgul "Can you answer a few questions for me?"
+
+
+?
+- "What was your relationship with the victim, Mr. Klaanen?"
+  say milan_malgul "What was your relationship with the victim, Mr. Klaanen?"
+  say mrs_peterson "Oh... poor Geordie."
+  say mrs_peterson "We've been neighbours for a *long* time. Talked from time to time."
+
+- "What can you tell me about Mayor Watkins?"
+  say milan_malgul "What can you tell me about Mayor Watkins?"
+  say mrs_peterson "Mayor's been good too us."
+  say mrs_peterson "He's been running this place for a long time."
+  say mrs_peterson "It's hard to remember a time without him."
+  say mrs_peterson "But... there's something- no, I shouldn't..."
+
+  ?
+  - "Has he been acting strange lately?"
+    say milan_malgul "Has he been acting strange lately?"
+    say mrs_peterson "Oh, I'm sure it's nothing..."
+    say mrs_peterson "He just seems *so* stressed recently!"
+    say mrs_peterson "I'm sure it's all this murder business weighing him down."
+  - "Noticed anything weird about his office lately?" [i/shard]
+    say mrs_peterson "His office? Why would you ask that?"
+    say milan_malgul "Can't go into details, Mrs. Peterson."
+    say milan_malgul "Let's just say I found some things that caught my eye."
+    say mrs_peterson "Strange? Only thing strange in that office are those creepy paintings!"
+    say mrs_peterson "I'd take a sharp object and *go to town on them* if I were him!"
+    say mrs_peterson "*Ahem* 'Scuse me! Got a bit excited there."
+  - "Let's talk later."
+    say milan_malgul "I have to go."
+    say mrs_peterson "Bye, dearie!"
+    stop
+  !
+
+- "Seen anything strange in this town as of late?"
+
+- "Let's talk later."
+  say milan_malgul "I have to go."
+  say mrs_peterson "Bye, dearie!"
+  stop
+!
+

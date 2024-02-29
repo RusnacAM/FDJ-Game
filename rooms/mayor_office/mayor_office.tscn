@@ -38,7 +38,7 @@ extents = Vector2( 42.5, 54 )
 [node name="mayor_office" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 876.0 ]
+"_edit_horizontal_guides_": [ 876.0, 709.0 ]
 }
 global_id = "mayor_office"
 esc_script = "res://rooms/mayor_office/scripts/mayor_office.esc"
@@ -224,6 +224,6 @@ script = ExtResource( 3 )
 global_id = "mayor_office_start_pos"
 is_start_location = true
 
-[node name="mayor" parent="." instance=ExtResource( 12 )]
-position = Vector2( 932, 696 )
-esc_script = "res://characters/mayor.esc"
+[node name="replace_me" parent="." instance=ExtResource( 12 )]
+position = Vector2( 948, 707 )
+z_index = 709
