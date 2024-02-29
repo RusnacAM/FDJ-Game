@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=1]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=4]
+[ext_resource path="res://assets/rooms/intro_room/skill-desc_0003_bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/rooms/intro_room/skill-desc_0002_far-buildings.png" type="Texture" id=6]
+[ext_resource path="res://assets/rooms/intro_room/skill-desc_0001_buildings.png" type="Texture" id=7]
+[ext_resource path="res://assets/rooms/intro_room/skill-desc_0000_foreground.png" type="Texture" id=8]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_item.gd" type="Script" id=9]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "intro"
+length = 3.0
+step = 3.0
+
+[node name="start_room" type="Node2D"]
+script = ExtResource( 3 )
+global_id = "start_room"
+esc_script = "res://rooms/start_room/scripts/start_room.esc"
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1216.0
+margin_bottom = 832.0
+mouse_filter = 2
+script = ExtResource( 2 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 608, 416 )
+script = ExtResource( 4 )
+global_id = "start_room_start_pos"
+is_start_location = true
+
+[node name="Background2" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="Background2"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1216, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background2/Layer1"]
+position = Vector2( 607, 416 )
+texture = ExtResource( 5 )
+
+[node name="Layer2" type="ParallaxLayer" parent="Background2"]
+motion_mirroring = Vector2( 1216, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background2/Layer2"]
+position = Vector2( 607, 416 )
+texture = ExtResource( 6 )
+
+[node name="ForeGround" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="ForeGround"]
+motion_scale = Vector2( 2, 1 )
+motion_mirroring = Vector2( 1216, 0 )
+
+[node name="Sprite" type="Sprite" parent="ForeGround/Layer1"]
+position = Vector2( 607, 414 )
+texture = ExtResource( 7 )
+
+[node name="Layer2" type="ParallaxLayer" parent="ForeGround"]
+motion_scale = Vector2( 2, 1 )
+motion_mirroring = Vector2( 1216, 0 )
+
+[node name="Sprite" type="Sprite" parent="ForeGround/Layer2"]
+position = Vector2( 607, 416 )
+texture = ExtResource( 8 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 224.0
+margin_top = 358.0
+margin_right = 1031.0
+margin_bottom = 514.0
+text = "It's a miserable day outside but staring at the brewing storm still beats watching Captain Locke as he's fixing his moustache in the mirror. He tosses you a dossier. 
+
+\"Well Malgul, it's your damn lucky day - you're getting to escape this hellhole for a while! Listen to this: some poor guy bit the dust in some freak town!\" 
+
+The files end on your chest will a dull thud. You open it, hand slowly reaching across the yellowed paper. Stabbed, lots of blood, no body, no motive. A light flashes outside as your skin crawls. Something just tells you this is going to be strange..."
+fit_content_height = true
+scroll_following = true
+
+[node name="ESCItem" type="Area2D" parent="."]
+pause_mode = 1
+script = ExtResource( 9 )
+global_id = "intro_animation_player"
+combine_when_selected_action_is_in = [  ]
+animations = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ESCItem"]
+anims/intro = SubResource( 2 )

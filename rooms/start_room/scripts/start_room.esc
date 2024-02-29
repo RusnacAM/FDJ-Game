@@ -1,0 +1,18 @@
+# Room script template
+
+# ":setup" is used to configure anything you want in place before the 
+# transition-in event runs (i.e. anything you need to set up before the player
+# sees the room). Reset movable objects to their start positions here.
+
+:setup
+
+:ready | NO_UI
+# Until we have a proper way to skip animations/cutscenes, we want to prevent
+# something silly like being able to pause during the intro.
+accept_input NONE
+
+anim_block intro_animation_player intro
+accept_input ALL
+
+change_scene res://rooms/mayor_office/mayor_office.tscn
+
