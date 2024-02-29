@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/Milan_Malgul.scn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/murder_house/murder_room.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/rooms/murder_house/scene_scale (1).png" type="Texture" id=7]
 [ext_resource path="res://assets/rooms/mayor_office/transparent.png" type="Texture" id=8]
 [ext_resource path="res://addons/escoria-core/game/core-scripts/esc_item.gd" type="Script" id=9]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_dialog_location.gd" type="Script" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 827, 596, 1191, 644, 1187, 796, 66, 802, 16, 636, 103, 611, 338, 594, 86, 576, 112, 561, 203, 567, 236, 559, 338, 576, 829, 565, 934, 548 )
@@ -82,6 +83,34 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="RoomObjects/bedroom_door"]
 texture = ExtResource( 8 )
+
+[node name="blood_bubble" type="Area2D" parent="RoomObjects"]
+pause_mode = 1
+script = ExtResource( 9 )
+global_id = "blood_bubble"
+esc_script = "res://rooms/murder_scene/scripts/blood_bubble.esc"
+tooltip_name = "blood_bubble"
+default_action = "look"
+combine_when_selected_action_is_in = [  ]
+inventory_texture = ExtResource( 8 )
+animations = null
+
+[node name="interact_position" type="Position2D" parent="RoomObjects/blood_bubble"]
+position = Vector2( 393, 690 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="RoomObjects/blood_bubble"]
+visible = false
+position = Vector2( -513.5, -216 )
+scale = Vector2( 0.197656, 0.4 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomObjects/blood_bubble"]
+polygon = PoolVector2Array( 274, 5, 359, 31, 406, 109, 446, 93, 477, 147, 471, 228, 508, 352, 525, 287, 551, 262, 545, 172, 625, 82, 664, 78, 713, 127, 744, 97, 935, 96, 1002, 4 )
+
+[node name="ESCDialogLocation" type="Position2D" parent="RoomObjects/blood_bubble"]
+position = Vector2( 617, 43 )
+script = ExtResource( 10 )
 
 [node name="StartPos" type="Position2D" parent="."]
 position = Vector2( 177, 605 )
