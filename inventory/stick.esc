@@ -1,8 +1,12 @@
 :look
-say milan_malgul "Surprisingly sharp."
-say milan_malgul "What's it doing in the mayor's office?"
+say milan_malgul "Just a wooden stick."
 
-:use stick
+:pickup
+say milan_malgul "Guess it can't hurt."
+set_active stick false
+inventory_add stick
+
+:use shard
 > [safe_solved]
   say milan_malgul "I guess I can fashion a spear out of this."
   inventory_remove shard

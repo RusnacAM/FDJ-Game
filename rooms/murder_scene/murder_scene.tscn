@@ -106,7 +106,7 @@ scale = Vector2( 0.197656, 0.4 )
 texture = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomObjects/blood_bubble"]
-polygon = PoolVector2Array( 274, 5, 359, 31, 406, 109, 446, 93, 477, 147, 471, 228, 508, 352, 525, 287, 551, 262, 545, 172, 625, 82, 664, 78, 713, 127, 744, 97, 935, 96, 1002, 4 )
+polygon = PoolVector2Array( 178, 3, 254, 96, 406, 109, 446, 93, 477, 147, 471, 228, 508, 352, 525, 287, 551, 262, 545, 172, 625, 82, 664, 78, 713, 127, 744, 97, 935, 96, 1002, 4 )
 
 [node name="ESCDialogLocation" type="Position2D" parent="RoomObjects/blood_bubble"]
 position = Vector2( 617, 43 )

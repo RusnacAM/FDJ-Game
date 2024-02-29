@@ -2,3 +2,17 @@
 > [!bubble_burst]
   say milan_malgul "Well... that was *something.*"
   say milan_malgul "What the hell is this town..."
+
+:use shard
+say milan_malgul "I can't reach that thing with this."
+
+:use stick
+say milan_malgul "Can't cut through that... *thing.*"
+say milan_malgul "I'll need something sharp for this."
+
+:use sharp_stick
+> [!bubble_burst]
+  say milan_malgul "Something changed. Better investigate the room again."
+  set_global bubble_burst true
+> [bubble_burst]
+  say milan_malgul "Yuck... what *is* that?"
